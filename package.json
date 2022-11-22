@@ -1,0 +1,49 @@
+{
+  "name": "@mikezimm/sample-library",
+  "version": "1.0.0",
+  "description": "Sample Library",
+  "license": "UNLICENSED",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "build": "del-cli \"./?(dist|lib)\" && tsc -p ./tsconfig.json && webpack",
+    "package": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --config ./webpack.config.cjs",
+    "clean": "del-cli \"./?(dist|lib)\"",
+    "lint": "eslint ./src --ext .ts"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@types/react": "16.9.51",
+    "@types/react-dom": "16.9.8",
+    "@types/webpack": "^5.28.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.23.0",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.6.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0",
+    "@types/lodash-es": "^4.17.21"
+  },
+  "files": [
+    "/lib"
+  ],
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}
