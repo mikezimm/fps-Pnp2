@@ -214,7 +214,7 @@ export function convertHelpfullError(e : any, alertMe = true, consoleLog = true,
  * @param traceString :  Format = webpart|analyticsWeb|analyticsList|result|text1|text2|text3|number1|number2
  */
 
-function saveErrorToLog ( returnMess: string, errObj : any, alertMe : any, consoleLog : any, traceString: string | null, muteConsole: boolean = false ) {
+export function saveErrorToLog ( returnMess: string, errObj : any, alertMe : any, consoleLog : any, traceString: string | null, muteConsole: boolean = false ) {
 
   let trace: string[] =  traceString ? traceString.split('|') : [];
 

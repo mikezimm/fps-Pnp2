@@ -9,9 +9,8 @@ import { Web } from "@pnp/sp/webs";
 // sp is only used if you are getting the local web... I think :)
 // import { sp } from "@pnp/sp";
 
-import { getExpandColumns, getSelectColumns } from '../../fpsReferences';
-
-import { getHelpfullErrorV2 } from '../logging/HelpfulLogic';
+import { getExpandColumns, getSelectColumns } from '@mikezimm/fps-js/lib/indexes/PnpjsListGetBasic';
+import { getHelpfullErrorV2, IHelpfulOutput, IHelpfullInput } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
 
 // copied from /EasyPages/epTypes.ts
 export interface ISourceProps {
@@ -48,7 +47,7 @@ export interface ISourceProps {
 
 export interface IItemsError {
   items: any[];
-  errMessage: string;
+  errorInfo: IHelpfulOutput;
 }
 
 export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolean | undefined, consoleLog: boolean | undefined,) : Promise<IItemsError> {
@@ -66,7 +65,8 @@ export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolea
 
   const web = Web(`${sourceProps.webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${sourceProps.webUrl}`);
 
-  let errMessage: string = '';
+  let errorInfo: IHelpfulOutput = null;
+
   try {
     if ( orderBy ) {
       //This does NOT DO ANYTHING at this moment.  Not sure why.
@@ -79,10 +79,12 @@ export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolea
     }
 
   } catch (e) {
-    errMessage = getHelpfullErrorV2( e, alertMe, consoleLog, 'getPagesContent ~ 77');
+    errorInfo = getHelpfullErrorV2( e, alertMe, consoleLog, 'getPagesContent ~ 83');
+    saveErrorToLog( returnMess, errObj ? errObj : e, alertMe, consoleLog, traceString );
+
     console.log('sourceProps', sourceProps );
   }
 
-  return { items: items, errMessage: errMessage };
+  return { items: items, errorInfo: errorInfo };
 
 }

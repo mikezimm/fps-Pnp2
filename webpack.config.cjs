@@ -9,7 +9,7 @@ module.exports = {
   mode: 'development', // switch to production when you package for production - impacts final size of package you import
   target: 'web',
   entry: {
-    myServices: path.resolve(__dirname, 'src/index.ts')  // myServices is the name of the library - external reference name:  myServices.js
+    fpsPnp2: path.resolve(__dirname, 'src/index.ts')  // myServices is the name of the library - external reference name:  myServices.js
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -43,7 +43,7 @@ module.exports = {
     }]
   },
   externals: { // Read webpack documentation - do not want to bundle these into the package
-    
+    "@mikezimm/fps-js": "*",
   },
   devServer: {
     compress: true,
