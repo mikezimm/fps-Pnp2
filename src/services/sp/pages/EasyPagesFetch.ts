@@ -10,8 +10,9 @@ import { Web } from "@pnp/sp/webs";
 // import { sp } from "@pnp/sp";
 
 import { getExpandColumns, getSelectColumns } from '@mikezimm/fps-js/lib/indexes/PnpjsListGetBasic';
-import { getHelpfullErrorV2, IHelpfulOutput, IHelpfullInput } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
+import { getHelpfullErrorV2, IHelpfullOutput, IHelpfullInput, convertHelpfullError } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
 
+import { saveErrorToLog } from '../logging/SaveErrorToLog';
 // copied from /EasyPages/epTypes.ts
 export interface ISourceProps {
   // [key: string]: string | string[] | boolean | { prop: string; asc: boolean; } | any |undefined ;
@@ -47,7 +48,7 @@ export interface ISourceProps {
 
 export interface IItemsError {
   items: any[];
-  errorInfo: IHelpfulOutput;
+  errorInfo: IHelpfullOutput;
 }
 
 export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolean | undefined, consoleLog: boolean | undefined,) : Promise<IItemsError> {
@@ -65,7 +66,7 @@ export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolea
 
   const web = Web(`${sourceProps.webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${sourceProps.webUrl}`);
 
-  let errorInfo: IHelpfulOutput = null;
+  let errorInfo: IHelpfullOutput = null;
 
   try {
     if ( orderBy ) {
@@ -79,8 +80,9 @@ export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolea
     }
 
   } catch (e) {
-    errorInfo = getHelpfullErrorV2( e, alertMe, consoleLog, 'getPagesContent ~ 83');
-    saveErrorToLog( returnMess, errObj ? errObj : e, alertMe, consoleLog, traceString );
+    const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'getPagesContent ~ 83' , logErrors:true };
+    errorInfo = convertHelpfullError( errorInput );
+    saveErrorToLog( errorInfo, e, alertMe, consoleLog, traceString );
 
     console.log('sourceProps', sourceProps );
   }

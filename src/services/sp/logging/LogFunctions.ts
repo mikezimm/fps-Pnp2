@@ -3,6 +3,8 @@
 //import { getBrowser, amIOnThisWeb, getWebUrlFromLink, getUrlVars,  } from './LogFunctions';
 //import { getCurrentPageLink, makeListLink, makeSiteLink, } from './LogFunctions';
 
+import { SimpleLink } from '@mikezimm/fps-js/lib/indexes/LinkInterface';
+
 export function getBrowser(validTypes: any ,changeSiteIcon: any){
 
   let thisBrowser = "";

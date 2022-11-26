@@ -4,7 +4,7 @@ import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import { Web } from "@pnp/sp/webs";
 
-import { getHelpfullError, IHelpfulOutput, IHelpfullInput } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
+import { getHelpfullError, IHelpfullOutput, IHelpfullInput } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
 import { getUrlVars, getCurrentPageLink } from './LogFunctions';
 
 /**
@@ -15,14 +15,17 @@ import { getUrlVars, getCurrentPageLink } from './LogFunctions';
  * @param traceString :  Format = webpart|analyticsWeb|analyticsList|result|text1|text2|text3|number1|number2
  */
 
- export function saveErrorToLog ( returnMess: string, errObj : any, alertMe : any, consoleLog : any, traceString: string | null, muteConsole: boolean = false ) {
+ export function saveErrorToLog ( errorInfo : IHelpfullOutput, errorInput: IHelpfullInput ) {
+
+  const muteConsole = true;
+  const { traceString, e, alertMe, consoleLog, logErrors } = errorInput;
 
   let trace: string[] =  traceString ? traceString.split('|') : [];
 
   let getParams = JSON.stringify( getUrlVars() ) ;
-  let parsedMessage = returnMess.split('-- FULL ERROR MESSAGE:') ;
+  let parsedMessage = errorInfo.returnMess.split('-- FULL ERROR MESSAGE:') ;
   let zzzRichText1 = parsedMessage.length > 0 ? parsedMessage[0]: 'No friendly error';
-  let zzzRichText2 = parsedMessage.length > 0 ? parsedMessage[1]: returnMess;
+  let zzzRichText2 = parsedMessage.length > 0 ? parsedMessage[1]: errorInfo.returnMess;
 
   let saveItem: any = {
     Title: trace[0],
