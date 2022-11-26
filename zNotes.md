@@ -1,3 +1,14 @@
+# Removed from TrainingSample/package.json:
+
+  "devDependencies": {
+    "@types/react": "16.9.51",
+    "@types/react-dom": "16.9.8",
+
+  "dependencies": {
+    "@pnp/common": "^2.14.0",
+    "@pnp/graph": "^2.14.0",
+    "@pnp/logging": "^2.14.0",
+    "@pnp/odata": "^2.14.0",
 
 
 ## Before bundling final version to publish for production:

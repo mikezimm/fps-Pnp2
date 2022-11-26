@@ -15,7 +15,6 @@
     "clean": "del-cli \"./?(dist|lib)\"",
     "lint": "eslint ./src --ext .ts"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mikezimm/fps-Pnp2.git"
@@ -30,8 +29,6 @@
     "url": "https://github.com/mikezimm/fps-Pnp2/issues"
   },
   "homepage": "https://github.com/mikezimm/fps-Pnp2#readme",
-
-
   "browserslist": [
     "last 1 version",
     "> 1%",
@@ -39,8 +36,6 @@
     "not dead"
   ],
   "devDependencies": {
-    // "@types/react": "16.9.51",
-    // "@types/react-dom": "16.9.8",
     "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
@@ -57,10 +52,7 @@
     "/lib"
   ],
   "dependencies": {
-    // "@pnp/common": "^2.14.0",
-    // "@pnp/graph": "^2.14.0",
-    // "@pnp/logging": "^2.14.0",
-    // "@pnp/odata": "^2.14.0",
+    "@mikezimm/fps-js": "^1.0.0",
     "@pnp/sp": "^2.14.0"
   }
 }
