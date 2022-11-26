@@ -122,5 +122,8 @@ module.exports = {
         "no-var": "error",
         "prefer-const": "error",
         "radix": "error",
+
+        //Adjustments from JT Training
+        
     },
 };

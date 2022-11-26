@@ -5,14 +5,13 @@ import "@pnp/sp/items";
 import { Web } from "@pnp/sp/webs";
 
 import { getHelpfullError, IHelpfullOutput, IHelpfullInput } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
-import { getUrlVars, getCurrentPageLink } from './LogFunctions';
+import { getUrlVars, getCurrentPageLink } from '@mikezimm/fps-js/lib/indexes/UrlFunctions';
+
 
 /**
  * 
- * @param returnResult 
- * @param alertMe 
- * @param consoleLog 
- * @param traceString :  Format = webpart|analyticsWeb|analyticsList|result|text1|text2|text3|number1|number2
+ * @param errorInfo 
+ * @param errorInput 
  */
 
  export function saveErrorToLog ( errorInfo : IHelpfullOutput, errorInput: IHelpfullInput ) {

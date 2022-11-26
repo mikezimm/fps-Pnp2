@@ -13,6 +13,7 @@ import { getExpandColumns, getSelectColumns } from '@mikezimm/fps-js/lib/indexes
 import { getHelpfullErrorV2, IHelpfullOutput, IHelpfullInput, convertHelpfullError } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
 
 import { saveErrorToLog } from '../logging/SaveErrorToLog';
+
 // copied from /EasyPages/epTypes.ts
 export interface ISourceProps {
   // [key: string]: string | string[] | boolean | { prop: string; asc: boolean; } | any |undefined ;
@@ -82,9 +83,8 @@ export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolea
   } catch (e) {
     const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'getPagesContent ~ 83' , logErrors:true };
     errorInfo = convertHelpfullError( errorInput );
-    saveErrorToLog( errorInfo, e, alertMe, consoleLog, traceString );
+    saveErrorToLog( errorInfo, errorInput );
 
-    console.log('sourceProps', sourceProps );
   }
 
   return { items: items, errorInfo: errorInfo };

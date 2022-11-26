@@ -52,7 +52,7 @@
     "/lib"
   ],
   "dependencies": {
-    "@mikezimm/fps-js": "^1.0.1",
+    "@mikezimm/fps-js": "^1.0.4",
     "@pnp/sp": "^2.14.0"
   }
 }
