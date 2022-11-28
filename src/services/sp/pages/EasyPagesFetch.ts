@@ -61,7 +61,11 @@ export async function fetchEasyPages( sourceProps: ISourceProps, alertMe: boolea
   const expandThese = expColumns.join(",");
   //Do not get * columns when using standards so you don't pull WikiFields
   const baseSelectColumns = sourceProps.selectThese ? sourceProps.selectThese : sourceProps.columns;
-  const selectThese = [ baseSelectColumns, ...selColumns].join(",");
+
+  //  [ added: ...    baseSelectColumns, did not have the ... not sure how that worked.
+  const selectThese = [ ...baseSelectColumns, ...selColumns].join(",");
+
+
   const restFilter = sourceProps.restFilter ? sourceProps.restFilter : '';
   const orderBy = sourceProps.orderBy ? sourceProps.orderBy : null;
 
