@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.1
+npm install @mikezimm/fps-pnp2@1.0.2
 
 # Changelog
+
+## 1.0.2 - 2202-Nov-30
+add src\services\sp\users\userServices.ts
 
 ## 1.0.1 - 2202-Nov-27
 update EasyPagesFetch.ts: const selectThese = [ ...baseSelectColumns, ...selColumns].join(",");
