@@ -14,3 +14,6 @@ import { IWebEnsureUserResult } from "@pnp/sp/site-users/";
 import { PrincipalType } from "@pnp/sp";
 import { PermissionKind } from '@pnp/sp/security';
 
+--- Per Julie, this syntax was correct.
+--- You need the Web part to get Web.
+--- But then you also need the webs, lists etc to do those calls down stream

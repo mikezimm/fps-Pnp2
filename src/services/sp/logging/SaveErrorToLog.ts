@@ -7,7 +7,6 @@ import { Web } from "@pnp/sp/webs";
 import { getHelpfullError, IHelpfullOutput, IHelpfullInput } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
 import { getUrlVars, getCurrentPageLink } from '@mikezimm/fps-js/lib/indexes/UrlFunctions';
 
-
 /**
  * 
  * @param errorInfo 
@@ -60,16 +59,16 @@ export function saveThisLogItem ( web: string, list: string, saveItem: any, mute
   const fullWebUrl : string = web.indexOf('/sites/') === 0 ? `${window.location.origin}${web}` : web;
   let saveWeb = Web( fullWebUrl );
   saveWeb.lists.getByTitle( list ).items.add( saveItem ).then((response) => { 
-      if ( muteConsole === false && window.location.href.toLowerCase().indexOf('clickster.sharepoint') > 0 ) {
-        console.log('+++ saveThisLogItem response:', web, list, saveItem, response );
-      }
-      return 'success';
-    }).catch((e) => {
-      if ( muteConsole === false && window.location.href.toLowerCase().indexOf('clickster.sharepoint') > 0 ) {
-        console.log('--- saveThisLogItem response:', web, list, saveItem, e );
-      }
-      console.log('e', getHelpfullError( e, false, true ) );
-      return 'failure';
+    if ( muteConsole === false && window.location.href.toLowerCase().indexOf('clickster.sharepoint') > 0 ) {
+      console.log('+++ saveThisLogItem response:', web, list, saveItem, response );
+    }
+    return 'success';
+  }).catch((e) => {
+    if ( muteConsole === false && window.location.href.toLowerCase().indexOf('clickster.sharepoint') > 0 ) {
+      console.log('--- saveThisLogItem response:', web, list, saveItem, e );
+    }
+    console.log('e', getHelpfullError( e, false, true ) );
+    return 'failure';
   });
 
 }
