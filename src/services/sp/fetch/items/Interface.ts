@@ -1,8 +1,7 @@
-import { IHelpfullOutput } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
 
-export interface IItemsError {
+export interface IItemsErrorObj {
   items: any[];
-  errorInfo: IHelpfullOutput;
+  e: any;
 }
 
 export interface IOrderByBoolean {

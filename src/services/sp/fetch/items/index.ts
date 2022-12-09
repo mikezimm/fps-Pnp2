@@ -1,2 +1,2 @@
-export type { IItemsError, IMinFetchProps, IOrderByBoolean } from './Interface';
+export type { IItemsErrorObj, IMinFetchProps, IOrderByBoolean } from './Interface';
 export { fetchAnyItems } from './functions';

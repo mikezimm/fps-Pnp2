@@ -5,7 +5,7 @@
 
 import { fetchAnyItems } from "./functions";
 import { IMinFetchProps, IOrderByBoolean } from "./Interface";
-import { IItemsError } from "./Interface";
+import { IItemsErrorObj } from "./Interface";
 
 // Duplicate from src\logic\Arrays\sorting\Interfaces.ts
 export interface ISeriesSortObject {
@@ -25,12 +25,13 @@ export interface IMinSourceFetchProps {
 
 /**
  * fetchSourceItems takes IMinSourceFetchProps and fetches items and returns an items/error object: IItemsError
+ * it also adds the correct orderBy property needed for fetching
  * @param sourceProps 
  * @param alertMe 
  * @param consoleLog 
  * @returns 
  */
-export async function fetchSourceItems( sourceProps: IMinSourceFetchProps, alertMe: boolean | undefined, consoleLog: boolean | undefined,) : Promise<IItemsError> {
+export async function fetchSourceItems( sourceProps: IMinSourceFetchProps, alertMe: boolean | undefined, consoleLog: boolean | undefined,) : Promise<IItemsErrorObj> {
 
   //This converts ISeriesSortObject which has string order to IOrderByBoolean for fetch requirements
   const orderBy: IOrderByBoolean = !sourceProps.orderBy ? null : {
@@ -45,7 +46,7 @@ export async function fetchSourceItems( sourceProps: IMinSourceFetchProps, alert
     }
   }
 
-  const result: IItemsError = await fetchAnyItems( FetchProps );
+  const result: IItemsErrorObj = await fetchAnyItems( FetchProps );
 
   return result;
 

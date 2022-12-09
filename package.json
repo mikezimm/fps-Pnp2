@@ -1,6 +1,6 @@
 {
   "name": "@mikezimm/fps-pnp2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Library of reusable react functions using Pnpjs v2",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

@@ -9,25 +9,28 @@ import { Web } from "@pnp/sp/webs";
 // sp is only used if you are getting the local web... I think :)
 // import { sp } from "@pnp/sp";
 
-import { IHelpfullOutput, IHelpfullInput, convertHelpfullError } from '@mikezimm/fps-js/lib/indexes/HelpfullErrors';
-
-import { saveErrorToLog } from '../../logging/SaveErrorToLog';
-import { IItemsError } from "./Interface";
+import { IItemsErrorObj } from "./Interface";
 import { IMinFetchProps } from "./Interface";
 
-export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IItemsError> {
+
+
+export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IItemsErrorObj> {
 
   const { webUrl, listTitle, orderByBoolean, alertMe, consoleLog } = fetchProps;
-  let items : any[]= [];
 
   const selectThese = fetchProps.selectThese ? fetchProps.selectThese.join(',') : '*';
   const expandThese = fetchProps.expandThese ? fetchProps.expandThese.join(',') : '';
   const restFilter = fetchProps.restFilter ? fetchProps.restFilter : '';
   const web = Web(`${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`);
 
-  let errorInfo: IHelpfullOutput = null;
+  // let errorInfo: IHelpfullOutput = null;
+  const result: IItemsErrorObj = {
+    items: [],
+    e: null,
+  };
 
   try {
+    let items : any[]= [];
     if ( orderByBoolean ) {
       //This does NOT DO ANYTHING at this moment.  Not sure why.
       items = await web.lists.getByTitle( listTitle ).items
@@ -38,13 +41,18 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
       .select(selectThese).expand(expandThese).filter(restFilter).getAll();
     }
 
+    result.items = items;
+
   } catch (e) {
-    const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'getPagesContent ~ 83' , logErrors:true };
-    errorInfo = convertHelpfullError( errorInput );
-    saveErrorToLog( errorInfo, errorInput );
+    // If it's being run locally, always console.log the error
+    if ( window.location.search.match(/debugManifestsFile(.*)manifests.js/gmi) ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~43`, e ) };
+    result.e = e;
+    // const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'fetchAnyItems ~ 42' , logErrors:true };
+    // errorInfo = convertHelpfullError( errorInput );
+    // saveErrorToLog( errorInfo, errorInput );
 
   }
 
-  return { items: items, errorInfo: errorInfo };
+  return result;
 
 }
