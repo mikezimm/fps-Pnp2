@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.7
+npm install @mikezimm/fps-pnp2@1.0.8
 
 # Changelog
+
+## 1.0.8 - 2022-Dec-10
+- update fetchSiteAdmins: add (per testing) - import { IList } from "@pnp/sp/lists";
 
 ## 1.0.7 - 2022-Dec-10
 - update pnp imports to include required things.  Originally found from testing fetchSiteAdmins

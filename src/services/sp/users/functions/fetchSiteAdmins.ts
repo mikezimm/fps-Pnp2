@@ -1,7 +1,11 @@
 
-// import "@pnp/sp/webs";
-import "@pnp/sp/lists/web";
+// Not needed confirmed via testing 2022-12-10
 // import { IList } from "@pnp/sp/lists";
+// import "@pnp/sp/lists";
+// import "@pnp/sp/webs";
+
+import "@pnp/sp/lists/web";
+import "@pnp/sp/items";
 import { Web } from "@pnp/sp/webs";
 
 import { check4Gulp } from "../../CheckGulping";
