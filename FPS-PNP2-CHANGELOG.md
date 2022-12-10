@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.4
+npm install @mikezimm/fps-pnp2@1.0.5
 
 # Changelog
+
+## 1.0.5 - 2022-Dec-09
+- restructured users folder.  Added index to combine all functions with their return interface
 
 ## 1.0.4 - 2022-Dec-09
 - rebuild src\services\sp\users\userServices.ts into files, move logic up to fps-library-v2

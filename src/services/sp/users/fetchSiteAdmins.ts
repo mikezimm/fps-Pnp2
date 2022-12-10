@@ -1,31 +1,5 @@
-import { Web } from "@pnp/sp/webs";
-import { check4Gulp } from "../CheckGulping";
-import { ISiteUsersResults } from "./ISiteUsersResults";
 
-export async function fetchSiteAdmins( webUrl: string ): Promise<ISiteUsersResults> {
+import type { ISiteUsersResults } from './interfaces/ISiteUsersResults';
+import { fetchSiteAdmins } from './functions/fetchSiteAdmins';
 
-  if ( !webUrl ) { return { users: null, e: null, status: 'none' } ; }
-
-  try {
-    let thisWeb = Web(webUrl);
-
-    //let adminFilter = "IsSiteAdmin eq true"; //This did not work....
-    let adminFilter = "IsSiteAdmin eq 1"; //Updated per @koltyakov: https://github.com/pnp/pnpjs/issues/1480
-    const siteAdmins = await thisWeb.siteUserInfoList.items.filter(adminFilter).get();
-
-    // This was added because loginName is not retured but is in other functions so it just copies it to make it easier to resuse.
-    siteAdmins.map(user => {
-      if (!user.loginName && user.Name) { user.loginName = user.Name; }
-      if (!user.Email && user.EMail) { user.Email = user.EMail; }
-    });
-
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchSiteAdmins ~22`, siteAdmins ) ; };
-    return { users: siteAdmins, e: null, status: 'success' }
-
-  } catch (e) {
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchSiteAdmins ~26`, e ) ; };
-    return { users: null, e: e, status: 'error' }
-
-  }
-
-}
+export { fetchSiteAdmins, ISiteUsersResults, }

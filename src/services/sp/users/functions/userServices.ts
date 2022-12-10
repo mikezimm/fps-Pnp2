@@ -12,7 +12,7 @@ import { getHelpfullErrorV2 } from '@mikezimm/fps-js/lib/logic/Errors/friendly';
 import { doesObjectExistInArray } from '@mikezimm/fps-js/lib/logic/Arrays/searching/objectfind';
 import { IUser } from '@mikezimm/fps-js/lib/logic/Users/IUserInterfaces';
 import { getFullUrlFromSlashSitesUrl } from '@mikezimm/fps-js/lib/logic/Strings/urlServices';
-import { BaseErrorTrace } from '../../../PackageConst';
+import { BaseErrorTrace } from '../../../../PackageConst';
 
 /***
  *    db    db .d8888. d88888b d8888b. 
