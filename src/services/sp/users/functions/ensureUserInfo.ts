@@ -1,3 +1,4 @@
+import { IWebEnsureUserResult } from "@pnp/sp/site-users";
 import { Web } from "@pnp/sp/webs";
 import { check4Gulp } from "../../CheckGulping";
 import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
@@ -14,12 +15,13 @@ export async function ensureUserInfo(webUrl: string, userEmail: string): Promise
 
   try {
     let thisListWeb = Web(webUrl);
-    const user = await thisListWeb.ensureUser(userEmail);
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserInfo ~19`, user ) };
-    return { user: user, e: null, status: 'success' }
+    const user: IWebEnsureUserResult = await thisListWeb.ensureUser(userEmail);
+
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserInfo ~20`, user ) };
+    return { user: user.user, e: null, status: 'success' }
 
   } catch (e) {
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserInfo ~23`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserInfo ~24`, e ) };
     return { user: null, e: e, status: 'error' }
 
   }

@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.5
+npm install @mikezimm/fps-pnp2@1.0.6
 
 # Changelog
+
+## 1.0.6 - 2022-Dec-09
+- added proper pnp fetch interfaces to user functions
 
 ## 1.0.5 - 2022-Dec-09
 - restructured users folder.  Added index to combine all functions with their return interface

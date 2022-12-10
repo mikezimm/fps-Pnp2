@@ -9,8 +9,10 @@
 *
 */
 
+import { ISiteUserInfo } from "@pnp/sp/site-users/types";
+
 export interface ISiteUsersResults {
-  users: any[];
+  users: ISiteUserInfo[];
   e: any;
   status: 'success' | 'error' | 'none';
 }

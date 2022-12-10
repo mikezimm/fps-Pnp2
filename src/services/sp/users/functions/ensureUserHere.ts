@@ -1,3 +1,4 @@
+import { IWebEnsureUserResult } from "@pnp/sp/site-users";
 import { Web } from "@pnp/sp/webs";
 import { check4Gulp } from "../../CheckGulping";
 import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
@@ -19,16 +20,16 @@ export async function ensureUserHere(loginName: string | undefined, webUrl: stri
   let thisListWeb = Web(webUrl);
 
   try {
-    const user = await thisListWeb.ensureUser(loginName);
+    const user: IWebEnsureUserResult = await thisListWeb.ensureUser(loginName);
     const users = thisListWeb.siteUsers;
     await users.add(user.data.LoginName);
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserHere ~31`, user, users ) ; };
 
-    return { user: user, e: null, status: 'success' }
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserHere ~27`, user, users ) ; };
+    return { user: user.user, e: null, status: 'success' }
 
   } catch (e) {
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserHere ~37`, e ) ; };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserHere ~32`, e ) ; };
     return { user: null, e: e, status: 'error' }
 
   }

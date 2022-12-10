@@ -9,8 +9,10 @@
  *
  */
 
+import { ISiteUser } from "@pnp/sp/site-users/types";
+
 export interface IEnsureUserResults {
-  user: any;
+  user: ISiteUser;
   e: any;
   status: 'success' | 'error' | 'none';
 }

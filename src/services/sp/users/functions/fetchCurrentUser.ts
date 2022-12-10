@@ -1,3 +1,4 @@
+import { ISiteUser } from "@pnp/sp/site-users";
 import { Web } from "@pnp/sp/webs";
 import { check4Gulp } from "../../CheckGulping";
 import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
@@ -21,12 +22,13 @@ export async function fetchCurrentUser(webUrl: string): Promise<IEnsureUserResul
 
   try {
     let thisWebInstance = Web(webUrl);
-    const user = await thisWebInstance.currentUser.get();
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchCurrentUser ~25`, user ) };
+    const user: ISiteUser = await thisWebInstance.currentUser.get();
+
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchCurrentUser ~27`, user ) };
     return { user: user, e: null, status: 'success' }
 
   } catch (e) {
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchCurrentUser ~29`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchCurrentUser ~31`, e ) };
     return { user: null, e: e, status: 'error' }
 
   }

@@ -16,7 +16,7 @@ import { check4Gulp } from "../../CheckGulping";
 *        Updated function from https://github.com/pnp/pnpjs/issues/1480#issuecomment-745203843
 */
 
-export async function fetchUserPermissions(webUrl: string, supressError: boolean) : Promise<IUserPermissionsResults> {
+export async function fetchUserPermissions(webUrl: string, ) : Promise<IUserPermissionsResults> {
 
   if ( !webUrl ) { return { basePerms: null, e: null, status: 'none' } ; }
 
