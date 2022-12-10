@@ -1,4 +1,9 @@
+
+// import "@pnp/sp/webs";
+import "@pnp/sp/lists/web";
+// import { IList } from "@pnp/sp/lists";
 import { Web } from "@pnp/sp/webs";
+
 import { check4Gulp } from "../../CheckGulping";
 import { ISiteUsersResults } from "../interfaces/ISiteUsersResults";
 

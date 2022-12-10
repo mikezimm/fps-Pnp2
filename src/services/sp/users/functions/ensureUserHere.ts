@@ -1,4 +1,5 @@
 import { IWebEnsureUserResult } from "@pnp/sp/site-users";
+import "@pnp/sp/site-users/web";
 import { Web } from "@pnp/sp/webs";
 import { check4Gulp } from "../../CheckGulping";
 import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";

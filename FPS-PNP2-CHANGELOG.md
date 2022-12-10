@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.6
+npm install @mikezimm/fps-pnp2@1.0.7
 
 # Changelog
+
+## 1.0.7 - 2022-Dec-10
+- update pnp imports to include required things.  Originally found from testing fetchSiteAdmins
 
 ## 1.0.6 - 2022-Dec-09
 - added proper pnp fetch interfaces to user functions

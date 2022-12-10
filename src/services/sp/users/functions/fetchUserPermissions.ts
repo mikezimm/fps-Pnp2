@@ -1,4 +1,5 @@
 import { sp } from "@pnp/sp";
+import "@pnp/sp/security/web";
 import { Web } from "@pnp/sp/webs";
 import { IBasePermissions, PermissionKind } from '@pnp/sp/security';
 import { IUserPermissionsResults } from "../interfaces/IUserPermissionsResults";

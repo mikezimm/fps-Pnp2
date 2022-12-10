@@ -3,6 +3,7 @@ import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import { Web } from "@pnp/sp/webs";
+import { check4Gulp } from "../CheckGulping";
 
 export function saveThisLogItem ( web: string, list: string, saveItem: any, muteConsole: boolean = false ): 'success' | any {
 
@@ -16,7 +17,7 @@ export function saveThisLogItem ( web: string, list: string, saveItem: any, mute
 
   }).catch((e) => {
     // If it's being run locally, always console.log the error
-    if ( window.location.search.match(/debugManifestsFile(.*)manifests.js/gmi) ) { console.log( `fps-Pnp2 ERROR: saveThisLogItem ~18`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: saveThisLogItem ~18`, e ) };
     return e;
 
   });

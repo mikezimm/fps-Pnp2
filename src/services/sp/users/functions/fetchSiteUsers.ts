@@ -1,5 +1,9 @@
+
+// import "@pnp/sp/webs";
+import "@pnp/sp/site-users/web";
 import { ISiteUserInfo } from "@pnp/sp/site-users/types";
 import { Web } from "@pnp/sp/webs";
+
 import { check4Gulp } from "../../CheckGulping";
 import { ISiteUsersResults } from "../interfaces/ISiteUsersResults";
 

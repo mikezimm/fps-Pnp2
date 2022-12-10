@@ -1,6 +1,9 @@
 import { sp } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/site-users/web";
+import "@pnp/sp/lists/web";
+// import { IList } from "@pnp/sp/lists";
+
 import { Web } from "@pnp/sp/webs";
 
 import { IWebEnsureUserResult } from "@pnp/sp/site-users/";

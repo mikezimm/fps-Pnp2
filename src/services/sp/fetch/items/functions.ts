@@ -11,8 +11,7 @@ import { Web } from "@pnp/sp/webs";
 
 import { IItemsErrorObj } from "./Interface";
 import { IMinFetchProps } from "./Interface";
-
-
+import { check4Gulp } from "../../CheckGulping";
 
 export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IItemsErrorObj> {
 
@@ -45,7 +44,7 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
 
   } catch (e) {
     // If it's being run locally, always console.log the error
-    if ( window.location.search.match(/debugManifestsFile(.*)manifests.js/gmi) ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~43`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~43`, e ) };
     result.e = e;
     // const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'fetchAnyItems ~ 42' , logErrors:true };
     // errorInfo = convertHelpfullError( errorInput );
