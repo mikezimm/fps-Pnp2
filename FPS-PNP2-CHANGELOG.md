@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.3
+npm install @mikezimm/fps-pnp2@1.0.4
 
 # Changelog
+
+## 1.0.4 - 2022-Dec-09
+- rebuild src\services\sp\users\userServices.ts into files, move logic up to fps-library-v2
 
 ## 1.0.3 - 2022-Dec-09
 Cleaned fetch items to bare min required to fetch, including ALVFinMan Source prepper

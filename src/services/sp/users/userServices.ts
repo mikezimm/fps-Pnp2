@@ -64,9 +64,9 @@ export function getPrincipalTypeString( type: PrincipalType ) {
  *                                                                                                                                    
  */
 
-export async function ensureUserInfo ( webURL: string, userEmail: string ) {
+export async function ensureUserInfo ( webUrl: string, userEmail: string ) {
 
-    let thisListWeb = Web(webURL);
+    let thisListWeb = Web(webUrl);
     //const username = "mike.zimmerman@autoliv.com";
     let result = await thisListWeb.ensureUser(userEmail);
     console.log('userInfo', result );
@@ -91,7 +91,7 @@ export async function ensureUserInfo ( webURL: string, userEmail: string ) {
             text: result.data.Title,   //Same as Title and title,         From React People Picker control
 
             remoteID: null,
-            ensureWeb: webURL,
+            ensureWeb: webUrl,
     };
 
     return thisUser;
@@ -520,12 +520,12 @@ export async function ensureTheseUsers ( theseUsers: IUser[], checkTheseUsers: I
 
   /**
    * Copied from ExStorage - gets current logged in user from site.
-   * @param webURL 
+   * @param webUrl 
    */
   
-  export async function getCurrentUser( webURL: string): Promise<IUser> {
+  export async function getCurrentUser( webUrl: string): Promise<IUser> {
     let currentUser : IUser =  {};
-    let thisWebInstance = Web(webURL);
+    let thisWebInstance = Web(webUrl);
     await thisWebInstance.currentUser.get().then((r) => {
       currentUser = {
         title: r['Title'] , //
