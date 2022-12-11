@@ -31,7 +31,7 @@ export async function fetchCurrentUser(webUrl: string): Promise<IEnsureUserResul
 
   } catch (e) {
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchCurrentUser ~ 31`, e ) };
-    return { user: null, e: e, status: 'error' }
+    return { user: null as any, e: e, status: 'error' }
 
   }
 

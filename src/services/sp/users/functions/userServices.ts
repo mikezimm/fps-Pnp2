@@ -240,9 +240,9 @@ export async function ensureUserHere( loginName: string | undefined, webUrl: str
         } catch (e) {
             let helpfulErrorEnd = [ webUrl, loginName, null, null ].join('|');
             errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'userServices Ensure User Here ~ 244', helpfulErrorEnd ].join('|'));
-            let saveMessage =  'Ensure Failed!\n' + loginName + "\n" + webUrl + "\n" + errMessage;
+            let saveMessage =  'Ensure Failed!\n' + loginName + "\n" + webUrl + "\n" + errMessage.returnMess;
     
-            if ( supressSaveConflict === true && errMessage.indexOf('Save Conflict') === 0 ) {
+            if ( supressSaveConflict === true && errMessage.returnMess.indexOf('Save Conflict') === 0 ) {
               //Do nothting
             } else {
               alert( saveMessage );
@@ -350,7 +350,7 @@ export async function ensureTheseUsers ( theseUsers: IUser[], checkTheseUsers: I
 
   export async function getUserPermissions( webUrl: string , supressError: boolean ) {
     let thisWeb = Web(webUrl);
-    let errMessage = null;
+    
 
     try {
         const userPerm = await thisWeb.getCurrentUserEffectivePermissions();
@@ -362,17 +362,17 @@ export async function ensureTheseUsers ( theseUsers: IUser[], checkTheseUsers: I
           'PermissionKind.FullMask': sp.web.hasPermissions(userPerm, PermissionKind.FullMask),
         });
 
-        return { permissions: userPerm, errMessage: errMessage } ;
+        return { permissions: userPerm, errMessage: '' } ;
 
       } catch (e) {
         let helpfulErrorEnd = [ webUrl, '', null, null ].join('|');
-        errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'getUserPerms getUserEffPerms ~ 371', helpfulErrorEnd ].join('|'));
+        let errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'getUserPerms getUserEffPerms ~ 371', helpfulErrorEnd ].join('|'));
 
-        if ( supressError === true && errMessage.indexOf('Save Conflict') === 0 ) {
-          alert( errMessage );
+        if ( supressError === true && errMessage.returnMess.indexOf('Save Conflict') === 0 ) {
+          alert( errMessage.returnMess );
         }
         console.log( 'getUserPermissions', errMessage ) ;
-        return { users: [], errMessage: errMessage } ;
+        return { users: [] as any, errMessage: errMessage.returnMess } ;
 
     }
 
@@ -392,7 +392,7 @@ export async function ensureTheseUsers ( theseUsers: IUser[], checkTheseUsers: I
   export async function getSiteAdmins( webUrl: string , supressError: boolean ) {
     let thisWeb = Web(webUrl);
 
-    let errMessage = null;
+    
     //let adminFilter = "IsSiteAdmin eq true"; //This did not work....
     let adminFilter = "IsSiteAdmin eq 1";  //Updated per @koltyakov: https://github.com/pnp/pnpjs/issues/1480
 
@@ -408,18 +408,18 @@ export async function ensureTheseUsers ( theseUsers: IUser[], checkTheseUsers: I
         if ( !user.Email && user.EMail ) { user.Email = user.EMail ; }
       });
 
-      return { users: siteAdmins, errMessage: errMessage }  ;
+      return { users: siteAdmins, errMessage: '' }  ;
 
     } catch (e) {
 
       let helpfulErrorEnd = [ webUrl, '', null, null ].join('|');
-      errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'getUserPerms getSiteAdmis ~ 418', helpfulErrorEnd ].join('|'));
+      let errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'getUserPerms getSiteAdmis ~ 418', helpfulErrorEnd ].join('|'));
       if ( supressError !== true ) {
-        alert( errMessage );
+        alert( errMessage.returnMess );
       }
       console.log( 'getSiteAdmins', errMessage );
 
-      return { users: [], errMessage: errMessage }  ;
+      return { users: [] as any, errMessage: errMessage.returnMess }  ;
   }
 
 }

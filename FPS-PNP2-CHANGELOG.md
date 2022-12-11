@@ -5,9 +5,16 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.10
+npm install @mikezimm/fps-pnp2@1.0.11
 
 # Changelog
+
+## 1.0.11 - 2022-Dec-10
+- tighten tsconfig rules
+- fixes when turning on tsconfig rules:
+    "strictNullChecks": true, ==>> reduced to false after some udpates/fixes
+    "noUnusedLocals": true, ==>> reduced to false after some udpates/fixes
+    "noImplicitAny": true,
 
 ## 1.0.10 - 2022-Dec-10
 - Fix casing in src/index.ts /sp/Users to /sp/users

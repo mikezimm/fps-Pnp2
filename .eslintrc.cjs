@@ -2,6 +2,8 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     parserOptions: {
         tsconfigRootDir: __dirname,
+        // per https://stackoverflow.com/questions/70164707/error-while-loading-rule-typescript-eslint-dot-notation-you-have-used-a-rule
+        // project: ['./tsconfig.json'],
     },
     plugins: [
         "@typescript-eslint",

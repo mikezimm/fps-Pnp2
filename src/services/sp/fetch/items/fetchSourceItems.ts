@@ -34,7 +34,7 @@ export interface IMinSourceFetchProps {
 export async function fetchSourceItems( sourceProps: IMinSourceFetchProps, alertMe: boolean | undefined, consoleLog: boolean | undefined,) : Promise<IItemsErrorObj> {
 
   //This converts ISeriesSortObject which has string order to IOrderByBoolean for fetch requirements
-  const orderBy: IOrderByBoolean = !sourceProps.orderBy ? null : {
+  const orderBy: IOrderByBoolean = !sourceProps.orderBy ? null as any : {
     prop: sourceProps.orderBy.prop,
     asc: sourceProps.orderBy.asc ? sourceProps.orderBy.asc : sourceProps.orderBy.order === 'dec' ? false : true,
   };

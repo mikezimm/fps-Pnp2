@@ -12,7 +12,7 @@ import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
  */
 export async function ensureUserInfo(webUrl: string, userEmail: string): Promise<IEnsureUserResults> {
 
-  if ( !webUrl || !userEmail ) { return { user: null, e: null, status: 'none' } ; }
+  if ( !webUrl || !userEmail ) { return { user: null as any, e: null, status: 'none' } ; }
 
   try {
     // 2022-12-10:  Verified needed full Url for this call
@@ -30,7 +30,7 @@ export async function ensureUserInfo(webUrl: string, userEmail: string): Promise
 
   } catch (e) {
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserInfo ~ 28`, e ) };
-    return { user: null, e: e, status: 'error' }
+    return { user: null as any, e: e, status: 'error' }
 
   }
 

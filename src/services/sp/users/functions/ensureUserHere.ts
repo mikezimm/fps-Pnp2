@@ -16,7 +16,7 @@ import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
 
 export async function ensureUserHere(loginName: string | undefined, webUrl: string, ): Promise<IEnsureUserResults> {
 
-  if ( !webUrl || !loginName ) { return { user: null, e: null, status: 'none' } ; }
+  if ( !webUrl || !loginName ) { return { user: null as any, e: null, status: 'none' } ; }
 
 
 
@@ -38,7 +38,7 @@ export async function ensureUserHere(loginName: string | undefined, webUrl: stri
   } catch (e) {
 
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserHere ~ 35`, e ) ; };
-    return { user: null, e: e, status: 'error' }
+    return { user: null as any, e: e, status: 'error' }
 
   }
 

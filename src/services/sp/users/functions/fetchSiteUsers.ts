@@ -9,7 +9,7 @@ import { ISiteUsersResults } from "../interfaces/ISiteUsersResults";
 
 export async function fetchSiteUsers(url: string, ): Promise<ISiteUsersResults> {
 
-  if ( !url ) { return { users: null, e: null, status: 'none' } ; }
+  if ( !url ) { return { users: null as any, e: null, status: 'none' } ; }
 
   try {
 
@@ -23,7 +23,7 @@ export async function fetchSiteUsers(url: string, ): Promise<ISiteUsersResults> 
 
   } catch (e) {
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchSiteUsers ~ 21`, e ) ; };
-    return { users: null, e: e, status: 'error' }
+    return { users: null as any, e: e, status: 'error' }
 
   }
 }

@@ -1,16 +1,24 @@
 {
   "compilerOptions": {
     "target": "ES2019",
+    "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "node",
-    "sourceMap": true,
     "jsx": "react",
+    "declaration": true,
+    "sourceMap": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
+    "outDir": "lib",
+
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "noImplicitAny": true,
+
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
     "declarationMap": true,
     "useDefineForClassFields": false,
+
     "typeRoots": [
       "./node_modules/@types",
     ],
@@ -18,7 +26,6 @@
       "es2019",
       "dom"
     ],
-    "outDir": "lib"
   },
   "include": [
     "./src/**/*"
