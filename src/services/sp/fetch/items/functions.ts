@@ -44,7 +44,7 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
 
   } catch (e) {
     // If it's being run locally, always console.log the error
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~43`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~ 43`, e ) };
     result.e = e;
     // const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'fetchAnyItems ~ 42' , logErrors:true };
     // errorInfo = convertHelpfullError( errorInput );

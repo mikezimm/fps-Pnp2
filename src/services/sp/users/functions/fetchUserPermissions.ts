@@ -27,7 +27,7 @@ export async function fetchUserPermissions(webUrl: string, ) : Promise<IUserPerm
     const basePerms: IBasePermissions = await thisWeb.getCurrentUserEffectivePermissions();
 
     if ( check4Gulp() === true ) {
-      console.log( `fps-Pnp2 SUCCESS: fetchUserPermissions ~30`, {
+      console.log( `fps-Pnp2 SUCCESS: fetchUserPermissions ~ 30`, {
         'PermissionKind.ViewListItems': sp.web.hasPermissions(basePerms, PermissionKind.ViewListItems),
         'PermissionKind.AddListItems': sp.web.hasPermissions(basePerms, PermissionKind.AddListItems),
         'PermissionKind.ManageWeb': sp.web.hasPermissions(basePerms, PermissionKind.ManageWeb),
@@ -39,7 +39,7 @@ export async function fetchUserPermissions(webUrl: string, ) : Promise<IUserPerm
 
   } catch (e) {
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchUserPermissions ~41`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchUserPermissions ~ 41`, e ) };
     return { basePerms: null, e: e, status: 'error' };
   }
 

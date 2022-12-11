@@ -26,11 +26,11 @@ export async function fetchCurrentUser(webUrl: string): Promise<IEnsureUserResul
     let thisWebInstance = Web(webUrl);
     const user: ISiteUser = await thisWebInstance.currentUser.get();
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchCurrentUser ~27`, user ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchCurrentUser ~ 27`, user ) };
     return { user: user, e: null, status: 'success' }
 
   } catch (e) {
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchCurrentUser ~31`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchCurrentUser ~ 31`, e ) };
     return { user: null, e: e, status: 'error' }
 
   }
