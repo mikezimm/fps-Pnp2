@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.9
+npm install @mikezimm/fps-pnp2@1.0.10
 
 # Changelog
+
+## 1.0.10 - 2022-Dec-10
+- Fix casing in src/index.ts /sp/Users to /sp/users
 
 ## 1.0.9 - 2022-Dec-10
 - Fixed errors in ensureUserHere and ensureUserInfo per below:
