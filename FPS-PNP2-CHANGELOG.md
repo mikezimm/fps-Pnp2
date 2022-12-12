@@ -5,9 +5,13 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.11
+npm install @mikezimm/fps-pnp2@1.0.12
 
 # Changelog
+
+## 1.0.12 - 2022-Dec-10
+- remove userServices (commented out)
+- removed dependancy on fps-js
 
 ## 1.0.11 - 2022-Dec-10
 - tighten tsconfig rules
