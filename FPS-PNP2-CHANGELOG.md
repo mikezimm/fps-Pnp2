@@ -5,9 +5,15 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.12
+npm install @mikezimm/fps-pnp2@1.0.13
 
 # Changelog
+
+## 1.0.13 - 2022-Dec-10:  Drilldown Updates
+- add common status IFPSResultStatus Fetch Item IItemsErrorObj
+- add fetch Item Attachments:  src\services\sp\fetch\items\attachments.ts
+- add fetch List Info:  src\services\sp\fetch\lists\functions.ts
+- add update item:  src\services\sp\update\item.ts
 
 ## 1.0.12 - 2022-Dec-10
 - remove userServices (commented out)

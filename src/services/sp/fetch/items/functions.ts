@@ -24,6 +24,7 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
 
   // let errorInfo: IHelpfullOutput = null;
   const result: IItemsErrorObj = {
+    status: 'Unknown',
     items: [],
     e: null,
   };
@@ -41,11 +42,13 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
     }
 
     result.items = items;
+    result.status = 'Success';
 
   } catch (e) {
     // If it's being run locally, always console.log the error
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~ 43`, e ) };
     result.e = e;
+    result.status = 'Failed';
     // const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'fetchAnyItems ~ 42' , logErrors:true };
     // errorInfo = convertHelpfullError( errorInput );
     // saveErrorToLog( errorInfo, errorInput );

@@ -1,5 +1,7 @@
+import { IFPSResultStatus } from "../../IFPSResultStatus";
 
 export interface IItemsErrorObj {
+  status: IFPSResultStatus;
   items: any[];
   e: any;
 }
