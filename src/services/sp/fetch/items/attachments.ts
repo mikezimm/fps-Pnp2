@@ -22,8 +22,6 @@ export interface IMinItemFetchProps {
 
 }
 
-
-
 export interface IFPSItemAttachmentsReturn {
   status: IFPSResultStatus;
   items: IAttachmentInfo[];

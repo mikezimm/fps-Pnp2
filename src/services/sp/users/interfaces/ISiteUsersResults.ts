@@ -10,9 +10,10 @@
 */
 
 import { ISiteUserInfo } from "@pnp/sp/site-users/types";
+import { IFPSResultStatus } from "../../IFPSResultStatus";
 
 export interface ISiteUsersResults {
   users: ISiteUserInfo[];
   e: any;
-  status: 'success' | 'error' | 'none';
+  status: IFPSResultStatus;
 }

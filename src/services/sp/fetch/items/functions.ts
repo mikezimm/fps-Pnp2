@@ -15,7 +15,7 @@ import { check4Gulp } from "../../CheckGulping";
 
 export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IItemsErrorObj> {
 
-  const { webUrl, listTitle, orderByBoolean, alertMe, consoleLog } = fetchProps;
+  const { webUrl, listTitle, orderByBoolean, alertMe, consoleLog, fetchCount } = fetchProps;
 
   const selectThese = fetchProps.selectThese ? fetchProps.selectThese.join(',') : '*';
   const expandThese = fetchProps.expandThese ? fetchProps.expandThese.join(',') : '';
@@ -31,14 +31,15 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
 
   try {
     let items : any[]= [];
+    const topCount = !fetchCount || fetchCount < 1 ? 200 : fetchCount;
     if ( orderByBoolean ) {
       //This does NOT DO ANYTHING at this moment.  Not sure why.
       items = await web.lists.getByTitle( listTitle ).items
-      .select(selectThese).expand(expandThese).filter(restFilter).orderBy( orderByBoolean.prop, orderByBoolean.asc ).getAll();
+      .select(selectThese).expand(expandThese).top(topCount).filter(restFilter).orderBy( orderByBoolean.prop, orderByBoolean.asc ).get();
 
     } else {
       items = await web.lists.getByTitle( listTitle ).items
-      .select(selectThese).expand(expandThese).filter(restFilter).getAll();
+      .select(selectThese).expand(expandThese).top(topCount).filter(restFilter).get();
     }
 
     result.items = items;
@@ -48,7 +49,7 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
     // If it's being run locally, always console.log the error
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~ 43`, e ) };
     result.e = e;
-    result.status = 'Failed';
+    result.status = 'Error';
     // const errorInput: IHelpfullInput = { e:e, alertMe:alertMe , consoleLog: consoleLog , traceString: 'fetchAnyItems ~ 42' , logErrors:true };
     // errorInfo = convertHelpfullError( errorInput );
     // saveErrorToLog( errorInfo, errorInput );

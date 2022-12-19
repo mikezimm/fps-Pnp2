@@ -46,7 +46,7 @@ export async function updateAnyItem( updateProps: IMinUpdateProps, ) : Promise<I
   } catch (e) {
 
     result.e = e;
-    result.status = 'Failed';
+    result.status = 'Error';
   }
 
   return result;

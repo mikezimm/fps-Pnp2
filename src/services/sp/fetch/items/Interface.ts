@@ -15,6 +15,7 @@ export interface IMinFetchProps {
   webUrl: string;
   listTitle: string;
   restFilter?: string;
+  fetchCount: number; // Default is 200 if no value is provided
   selectThese?: string[];
   expandThese?: string[];
   context?: any; //Not needed until Pnpjs v3

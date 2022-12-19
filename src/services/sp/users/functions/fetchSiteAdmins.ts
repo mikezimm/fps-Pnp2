@@ -13,7 +13,7 @@ import { ISiteUsersResults } from "../interfaces/ISiteUsersResults";
 
 export async function fetchSiteAdmins( webUrl: string ): Promise<ISiteUsersResults> {
 
-  if ( !webUrl ) { return { users: null as any, e: null, status: 'none' } ; }
+  if ( !webUrl ) { return { users: null as any, e: null, status: 'NoWeb' } ; }
 
   try {
     let thisWeb = Web(webUrl);
@@ -29,11 +29,11 @@ export async function fetchSiteAdmins( webUrl: string ): Promise<ISiteUsersResul
     });
 
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchSiteAdmins ~ 22`, siteAdmins ) ; };
-    return { users: siteAdmins, e: null, status: 'success' }
+    return { users: siteAdmins, e: null, status: 'Success' }
 
   } catch (e) {
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchSiteAdmins ~ 26`, e ) ; };
-    return { users: null as any, e: e, status: 'error' }
+    return { users: null as any, e: e, status: 'Error' }
 
   }
 

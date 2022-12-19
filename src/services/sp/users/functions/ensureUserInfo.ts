@@ -1,4 +1,4 @@
-import { IWebEnsureUserResult } from "@pnp/sp/site-users";
+import { IWebEnsureUserResult } from "@pnp/sp/site-users/types";
 import "@pnp/sp/site-users/web";
 import { Web } from "@pnp/sp/webs";
 import { check4Gulp } from "../../CheckGulping";
@@ -12,7 +12,8 @@ import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
  */
 export async function ensureUserInfo(webUrl: string, userEmail: string): Promise<IEnsureUserResults> {
 
-  if ( !webUrl || !userEmail ) { return { user: null as any, e: null, status: 'none' } ; }
+  if ( !webUrl  ) { return { user: null as any, e: null, status: 'NoWeb' } ; }
+  if ( !userEmail ) { return { user: null as any, e: null, status: 'NoUser' } ; }
 
   try {
     // 2022-12-10:  Verified needed full Url for this call
@@ -26,11 +27,11 @@ export async function ensureUserInfo(webUrl: string, userEmail: string): Promise
 
     // 2022-12-10:  Tried passing in user.user but it errored out all the time.  Now testing for .data first
     const userObject: any = user.data ? user.data : user.user;
-    return { user: userObject, e: null, status: 'success' }
+    return { user: userObject, e: null, status: 'Success' }
 
   } catch (e) {
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserInfo ~ 28`, e ) };
-    return { user: null as any, e: e, status: 'error' }
+    return { user: null as any, e: e, status: 'Error' }
 
   }
 

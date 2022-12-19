@@ -239,7 +239,7 @@
     
 //         } catch (e) {
 //             let helpfulErrorEnd = [ webUrl, loginName, null, null ].join('|');
-//             errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'userServices Ensure User Here ~ 244', helpfulErrorEnd ].join('|'));
+//             errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Error', 'userServices Ensure User Here ~ 244', helpfulErrorEnd ].join('|'));
 //             let saveMessage =  'Ensure Failed!\n' + loginName + "\n" + webUrl + "\n" + errMessage.returnMess;
     
 //             if ( supressSaveConflict === true && errMessage.returnMess.indexOf('Save Conflict') === 0 ) {
@@ -366,7 +366,7 @@
 
 //       } catch (e) {
 //         let helpfulErrorEnd = [ webUrl, '', null, null ].join('|');
-//         let errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'getUserPerms getUserEffPerms ~ 371', helpfulErrorEnd ].join('|'));
+//         let errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Error', 'getUserPerms getUserEffPerms ~ 371', helpfulErrorEnd ].join('|'));
 
 //         if ( supressError === true && errMessage.returnMess.indexOf('Save Conflict') === 0 ) {
 //           alert( errMessage.returnMess );
@@ -413,7 +413,7 @@
 //     } catch (e) {
 
 //       let helpfulErrorEnd = [ webUrl, '', null, null ].join('|');
-//       let errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'getUserPerms getSiteAdmis ~ 418', helpfulErrorEnd ].join('|'));
+//       let errMessage = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Error', 'getUserPerms getSiteAdmis ~ 418', helpfulErrorEnd ].join('|'));
 //       if ( supressError !== true ) {
 //         alert( errMessage.returnMess );
 //       }
@@ -501,7 +501,7 @@
   
 //     } catch(e){
 //       let helpfulErrorEnd = [ 'Get Site Users', '', null, null ].join('|');
-//       const errorInfo = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Failed', 'getValidUsers ~ 437', helpfulErrorEnd ].join('|') );
+//       const errorInfo = getHelpfullErrorV2(e, true, true, [ BaseErrorTrace , 'Error', 'getValidUsers ~ 437', helpfulErrorEnd ].join('|') );
 //       validUserInfos.errMessage = errorInfo.returnMess;
 //       console.log('Not able to get SiteUsers', validUserInfos.errMessage);
 //     }

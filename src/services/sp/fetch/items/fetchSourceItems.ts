@@ -20,6 +20,7 @@ export interface IMinSourceFetchProps {
   selectThese?: string[];
   expandThese?: string[];
   restFilter?: string;
+  fetchCount: number; // Default is 200 if no value is provided
   orderBy?: ISeriesSortObject;
 }
 
@@ -42,6 +43,7 @@ export async function fetchSourceItems( sourceProps: IMinSourceFetchProps, alert
   const FetchProps: IMinFetchProps = { ...sourceProps, ...{
       orderBy: orderBy,
       alertMe: alertMe,
+      fetchCount: sourceProps.fetchCount,
       consoleLog: consoleLog,
     }
   }

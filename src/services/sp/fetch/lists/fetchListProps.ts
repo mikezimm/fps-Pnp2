@@ -11,7 +11,7 @@ import { Web } from "@pnp/sp/webs";
 
 import { check4Gulp } from "../../CheckGulping";
 import { IFPSResultStatus } from "../../IFPSResultStatus";
-import { IList, IListInfo } from "@pnp/sp/lists";
+import { IListInfo } from "@pnp/sp/lists/types";
 
 
 export interface IMinFetchListProps {
@@ -58,7 +58,7 @@ export async function fetchListProps( fetchProps: IMinFetchListProps, ) : Promis
     // If it's being run locally, always console.log the error
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchListProps ~ 59`, e ) };
     result.e = e;
-    result.status = 'Failed';
+    result.status = 'Error';
 
   }
 

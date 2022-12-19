@@ -19,7 +19,7 @@ import { check4Gulp } from "../../CheckGulping";
 
 export async function fetchUserPermissions(webUrl: string, ) : Promise<IUserPermissionsResults> {
 
-  if ( !webUrl ) { return { basePerms: null as any, e: null, status: 'none' } ; }
+  if ( !webUrl ) { return { basePerms: null as any, e: null, status: 'NoWeb' } ; }
 
   let thisWeb = Web(webUrl);
 
@@ -35,12 +35,12 @@ export async function fetchUserPermissions(webUrl: string, ) : Promise<IUserPerm
       } ) 
     };
 
-    return { basePerms: basePerms, e: null, status: 'success' };
+    return { basePerms: basePerms, e: null, status: 'Success' };
 
   } catch (e) {
 
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchUserPermissions ~ 41`, e ) };
-    return { basePerms: null as any, e: e, status: 'error' };
+    return { basePerms: null as any, e: e, status: 'Error' };
   }
 
 }

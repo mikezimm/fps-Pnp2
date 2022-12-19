@@ -1,4 +1,4 @@
-import { ISiteUser } from "@pnp/sp/site-users";
+import { ISiteUser } from "@pnp/sp/site-users/types";
 // import "@pnp/sp/webs";
 import "@pnp/sp/site-users/web";
 import { Web } from "@pnp/sp/webs";
@@ -27,11 +27,11 @@ export async function fetchCurrentUser(webUrl: string): Promise<IEnsureUserResul
     const user: ISiteUser = await thisWebInstance.currentUser.get();
 
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchCurrentUser ~ 27`, user ) };
-    return { user: user, e: null, status: 'success' }
+    return { user: user, e: null, status: 'Success' }
 
   } catch (e) {
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchCurrentUser ~ 31`, e ) };
-    return { user: null as any, e: e, status: 'error' }
+    return { user: null as any, e: e, status: 'Error' }
 
   }
 

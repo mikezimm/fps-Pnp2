@@ -1,2 +1,2 @@
 
-export type IFPSResultStatus = 'Unknown' | 'Success' | 'Failed';
+export type IFPSResultStatus = 'Unknown' | 'Success' | 'Error' | 'NoWeb' | 'NoList' | 'NoItem' | 'NoUser';

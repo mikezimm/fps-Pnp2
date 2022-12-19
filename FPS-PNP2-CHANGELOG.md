@@ -5,9 +5,22 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.13
+npm install @mikezimm/fps-pnp2@1.0.16
 
 # Changelog
+
+## 1.0.16 - 2022-Dec-10:  Drilldown Updates
+- changed IFPSResultStatus from 'Failed' to 'Error'
+- changed all return status values to IFPSResultStatus for consistancy
+- added more result status if it does not pass initial check like 'NoWeb'
+- export type IFPSResultStatus = 'Unknown' | 'Success' | 'Error' | 'NoWeb' | 'NoList' | 'NoItem' | 'NoUser';
+
+
+## 1.0.15 - 2022-Dec-10:  Drilldown Updates
+- change filename from src\services\sp\fetch\lists\functions.ts to fetchListProps
+
+## 1.0.14 - 2022-Dec-10:  Drilldown Updates
+- add fetchCount to fetchAnyItems
 
 ## 1.0.13 - 2022-Dec-10:  Drilldown Updates
 - add common status IFPSResultStatus Fetch Item IItemsErrorObj
