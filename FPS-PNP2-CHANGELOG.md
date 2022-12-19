@@ -5,11 +5,11 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.16
+npm install @mikezimm/fps-pnp2@1.0.17
 
 # Changelog
 
-## 1.0.16 - 2022-Dec-10:  Drilldown Updates
+## 1.0.17 - 2022-Dec-10:  Drilldown Updates
 - changed IFPSResultStatus from 'Failed' to 'Error'
 - changed all return status values to IFPSResultStatus for consistancy
 - added more result status if it does not pass initial check like 'NoWeb'
