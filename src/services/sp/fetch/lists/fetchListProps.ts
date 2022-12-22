@@ -44,8 +44,9 @@ export async function fetchListProps( fetchProps: IMinFetchListProps, ) : Promis
     const selectTheseStr = selectThese ? selectThese.join(',') : '*';
     const expandTheseStr = expandThese ? expandThese.join(',') : '';
 
-    const web = Web(`${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`);
-    const thisListWeb = Web( web );
+    const w = `${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`;
+    const thisListWeb = Web(w);
+
     const thisListObject = thisListWeb.lists.getByTitle(listTitle);
     const list: IListInfo = await thisListObject.expand( expandTheseStr ).select( selectTheseStr ).get();
 

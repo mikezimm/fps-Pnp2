@@ -5,9 +5,18 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.17
+npm install @mikezimm/fps-pnp2@1.0.21
 
 # Changelog
+
+## 1.0.21 - 2022-Dec-10:  Drilldown Updates
+- add IFPSResultStatus to IFPSResultStatus
+
+## 1.0.20 - 2022-Dec-10:  Drilldown Updates
+- add saveThisLogItemAsync with await this time
+
+## 1.0.18 - 2022-Dec-10:  Drilldown Updates
+- fix double web setup in fetchListProps
 
 ## 1.0.17 - 2022-Dec-10:  Drilldown Updates
 - changed IFPSResultStatus from 'Failed' to 'Error'
