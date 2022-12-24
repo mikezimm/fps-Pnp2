@@ -18,6 +18,7 @@ export interface IMinFetchListProps {
   webUrl: string;
   listTitle: string;
   selectThese?: string[];
+  restFilter?: string;
   expandThese?: string[];
   context?: any; //Not needed until Pnpjs v3
 }
@@ -39,28 +40,33 @@ export async function fetchListProps( fetchProps: IMinFetchListProps, ) : Promis
     e: null,
   };
 
-  try {
+  if ( !listTitle ) {
+    result.status = 'NoList';
 
-    const selectTheseStr = selectThese ? selectThese.join(',') : '*';
-    const expandTheseStr = expandThese ? expandThese.join(',') : '';
+  } else {
 
-    const w = `${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`;
-    const thisListWeb = Web(w);
+    try {
 
-    const thisListObject = thisListWeb.lists.getByTitle(listTitle);
-    const list: IListInfo = await thisListObject.expand( expandTheseStr ).select( selectTheseStr ).get();
+      const selectTheseStr = selectThese ? selectThese.join(',') : '*';
+      const expandTheseStr = expandThese ? expandThese.join(',') : '';
 
-    result.list = list;
-    result.status = 'Success';
+      const fetchWeb = Web(`${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`);
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchListProps ~ 55`, result ) };
+      const thisListObject = fetchWeb.lists.getByTitle(listTitle);
+      const list: IListInfo = await thisListObject.expand( expandTheseStr ).select( selectTheseStr ).get();
 
-  } catch (e) {
-    // If it's being run locally, always console.log the error
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchListProps ~ 59`, e ) };
-    result.e = e;
-    result.status = 'Error';
+      result.list = list;
+      result.status = 'Success';
 
+      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchListProps ~ 55`, result ) };
+
+    } catch (e) {
+      // If it's being run locally, always console.log the error
+      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchListProps ~ 59`, e ) };
+      result.e = e;
+      result.status = 'Error';
+
+    }
   }
 
   return result;

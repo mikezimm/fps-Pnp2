@@ -3,7 +3,7 @@
  */
 
 
-import { fetchAnyItems } from "./functions";
+import { fetchAnyItems } from "./fetch";
 import { IMinFetchProps, IOrderByBoolean } from "./Interface";
 import { IItemsErrorObj } from "./Interface";
 

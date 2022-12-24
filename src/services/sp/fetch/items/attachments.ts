@@ -39,23 +39,28 @@ export async function fetchItemAttachments( fetchProps: IMinItemFetchProps, ) : 
     e: null,
   };
 
-  try {
-    const web = Web(`${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`);
-    const thisListWeb = Web( web );
-    const thisListObject = thisListWeb.lists.getByTitle( listTitle );
+  if ( !listTitle ) {
+    result.status = 'NoList';
 
-    const items: IAttachmentInfo[] = await thisListObject.items.getById( Id ).attachmentFiles();
-    result.items = items;
-    result.status = 'Success';
+  } else {
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchItemAttachments ~ 55`, result ) };
+    try {
+      const fetchWeb = Web(`${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`);
+      const thisListObject = fetchWeb.lists.getByTitle( listTitle );
 
-  } catch (e) {
+      const items: IAttachmentInfo[] = await thisListObject.items.getById( Id ).attachmentFiles();
+      result.items = items;
+      result.status = 'Success';
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchItemAttachments ~ 59`, e ) };
+      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchItemAttachments ~ 55`, result ) };
 
-    result.e = e;
+    } catch (e) {
 
+      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchItemAttachments ~ 59`, e ) };
+
+      result.e = e;
+
+    }
   }
 
   return result;

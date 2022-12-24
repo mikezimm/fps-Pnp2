@@ -29,14 +29,14 @@ export async function ensureUserHere(loginName: string | undefined, webUrl: stri
     const users = thisListWeb.siteUsers;
     await users.add(user.data.LoginName);
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserHere ~ 28`, user, users ) ; };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserHere ~ 32`, user, users ) ; };
     // 2022-12-10:  Tried passing in user.user but it errored out all the time.  Now testing for .data first
     const userObject: any = user.data ? user.data : user.user;
     return { user: userObject, e: null, status: 'Success' }
 
   } catch (e) {
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserHere ~ 35`, e ) ; };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserHere ~ 39`, e ) ; };
     return { user: null as any, e: e, status: 'Error' }
 
   }

@@ -5,20 +5,25 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.21
+npm install @mikezimm/fps-pnp2@1.0.22
 
 # Changelog
 
-## 1.0.21 - 2022-Dec-10:  Drilldown Updates
+## 1.0.22 - 2022-Dec-23:  Drilldown Updates
+- add fetchFields : src\services\sp\fetch\fields\fetch.ts
+- add fetchViews  :  src\services\sp\fetch\views\fetch.ts
+- add fetchLists  : src\services\sp\fetch\lists\fetchLists.ts
+
+## 1.0.21 - 2022-Dec-21:  Drilldown Updates
 - add IFPSResultStatus to IFPSResultStatus
 
-## 1.0.20 - 2022-Dec-10:  Drilldown Updates
+## 1.0.20 - 2022-Dec-21:  Drilldown Updates
 - add saveThisLogItemAsync with await this time
 
-## 1.0.18 - 2022-Dec-10:  Drilldown Updates
+## 1.0.18 - 2022-Dec-21:  Drilldown Updates
 - fix double web setup in fetchListProps
 
-## 1.0.17 - 2022-Dec-10:  Drilldown Updates
+## 1.0.17 - 2022-Dec-17:  Drilldown Updates
 - changed IFPSResultStatus from 'Failed' to 'Error'
 - changed all return status values to IFPSResultStatus for consistancy
 - added more result status if it does not pass initial check like 'NoWeb'

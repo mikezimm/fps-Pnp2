@@ -28,11 +28,11 @@ export async function fetchSiteAdmins( webUrl: string ): Promise<ISiteUsersResul
       if (!user.Email && user.EMail) { user.Email = user.EMail; }
     });
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchSiteAdmins ~ 22`, siteAdmins ) ; };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchSiteAdmins ~ 31`, siteAdmins ) ; };
     return { users: siteAdmins, e: null, status: 'Success' }
 
   } catch (e) {
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchSiteAdmins ~ 26`, e ) ; };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchSiteAdmins ~ 35`, e ) ; };
     return { users: null as any, e: e, status: 'Error' }
 
   }

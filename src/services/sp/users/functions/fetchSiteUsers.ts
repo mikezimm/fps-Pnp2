@@ -18,11 +18,11 @@ export async function fetchSiteUsers(url: string, ): Promise<ISiteUsersResults> 
 
     const allUsers: ISiteUserInfo[] = await thisWeb.siteUsers.get();
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchSiteUsers ~ 17`, allUsers ) ; };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: fetchSiteUsers ~ 21`, allUsers ) ; };
     return { users: allUsers, e: null, status: 'Success' }
 
   } catch (e) {
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchSiteUsers ~ 21`, e ) ; };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchSiteUsers ~ 25`, e ) ; };
     return { users: null as any, e: e, status: 'Error' }
 
   }

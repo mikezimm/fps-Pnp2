@@ -23,14 +23,14 @@ export async function ensureUserInfo(webUrl: string, userEmail: string): Promise
 
     const user: IWebEnsureUserResult = await thisListWeb.ensureUser(userEmail);
 
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserInfo ~ 21`, user ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 SUCCESS: ensureUserInfo ~ 26`, user ) };
 
     // 2022-12-10:  Tried passing in user.user but it errored out all the time.  Now testing for .data first
     const userObject: any = user.data ? user.data : user.user;
     return { user: userObject, e: null, status: 'Success' }
 
   } catch (e) {
-    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserInfo ~ 28`, e ) };
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: ensureUserInfo ~ 33`, e ) };
     return { user: null as any, e: e, status: 'Error' }
 
   }

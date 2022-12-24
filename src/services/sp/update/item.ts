@@ -35,9 +35,9 @@ export async function updateAnyItem( updateProps: IMinUpdateProps, ) : Promise<I
   };
 
   try {
-    const thisListWeb = Web( webUrl );
+    const fetchWeb = Web( webUrl );
 
-    let thisListObject = thisListWeb.lists.getByTitle( listTitle );
+    let thisListObject = fetchWeb.lists.getByTitle( listTitle );
 
     const response: IItemUpdateResult = await thisListObject.items.getById( Id ).update( itemUpdate );
     result.response = response;
