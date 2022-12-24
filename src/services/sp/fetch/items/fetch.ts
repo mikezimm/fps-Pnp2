@@ -6,6 +6,7 @@ import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import { Web } from "@pnp/sp/webs";
+
 // sp is only used if you are getting the local web... I think :)
 // import { sp } from "@pnp/sp";
 
@@ -16,7 +17,6 @@ import { check4Gulp } from "../../CheckGulping";
 export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IItemsErrorObj> {
 
   const { webUrl, listTitle, orderByBoolean, alertMe, consoleLog, fetchCount } = fetchProps;
-
 
   // let errorInfo: IHelpfullOutput = null;
   const result: IItemsErrorObj = {

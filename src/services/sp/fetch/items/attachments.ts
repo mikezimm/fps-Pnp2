@@ -1,6 +1,3 @@
-/**
- * Originally from Drilldown - EasyPages
- */
 
 import "@pnp/sp/webs";
 import "@pnp/sp/lists";
@@ -11,29 +8,24 @@ import { IAttachmentInfo } from "@pnp/sp/attachments";
 // import { sp } from "@pnp/sp";
 
 import { check4Gulp } from "../../CheckGulping";
-import { IFPSResultStatus } from "../../IFPSResultStatus";
+import { IItemsErrorObj } from "./Interface";
 
 export interface IMinItemFetchProps {
-
   webUrl: string;
   listTitle: string;
   Id: number;
   context?: any; //Not needed until Pnpjs v3
-
 }
 
-export interface IFPSItemAttachmentsReturn {
-  status: IFPSResultStatus;
+export interface IAttachmentsErrorObj extends IItemsErrorObj  {
   items: IAttachmentInfo[];
-  e: any;
 }
 
-export async function fetchItemAttachments( fetchProps: IMinItemFetchProps, ) : Promise<IFPSItemAttachmentsReturn> {
+export async function fetchItemAttachments( fetchProps: IMinItemFetchProps, ) : Promise<IAttachmentsErrorObj> {
 
   const { webUrl, listTitle, Id  } = fetchProps;
 
-  // let errorInfo: IHelpfullOutput = null;
-  const result: IFPSItemAttachmentsReturn = {
+  const result: IAttachmentsErrorObj = {
     status: 'Unknown',
     items: [] ,
     e: null,
@@ -48,15 +40,15 @@ export async function fetchItemAttachments( fetchProps: IMinItemFetchProps, ) : 
       const fetchWeb = Web(`${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`);
       const thisListObject = fetchWeb.lists.getByTitle( listTitle );
 
-      const items: IAttachmentInfo[] = await thisListObject.items.getById( Id ).attachmentFiles();
+      const items = await thisListObject.items.getById( Id ).attachmentFiles();
       result.items = items;
       result.status = 'Success';
 
-      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchItemAttachments ~ 55`, result ) };
+      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchItemAttachments ~ 47`, result ) };
 
     } catch (e) {
 
-      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchItemAttachments ~ 59`, e ) };
+      if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchItemAttachments ~ 51`, e ) };
 
       result.e = e;
 

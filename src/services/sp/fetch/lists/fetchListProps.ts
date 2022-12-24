@@ -23,18 +23,18 @@ export interface IMinFetchListProps {
   context?: any; //Not needed until Pnpjs v3
 }
 
-export interface IFPSMinListInfo {
+export interface IListErrorObj {
   status: IFPSResultStatus;
   list: IListInfo | null;
   e: any;
 }
 
-export async function fetchListProps( fetchProps: IMinFetchListProps, ) : Promise<IFPSMinListInfo> {
+export async function fetchListProps( fetchProps: IMinFetchListProps, ) : Promise<IListErrorObj> {
 
   const { webUrl, listTitle, selectThese, expandThese } = fetchProps;
 
   // let errorInfo: IHelpfullOutput = null;
-  const result: IFPSMinListInfo = {
+  const result: IListErrorObj = {
     status: 'Unknown',
     list: null,
     e: null,
