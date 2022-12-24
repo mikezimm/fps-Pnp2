@@ -5,9 +5,15 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.22
+npm install @mikezimm/fps-pnp2@1.0.24
 
 # Changelog
+
+## 1.0.24 - 2022-Dec-23:  Drilldown Updates
+- remove fetchSourceItems.  Now getSourceItems in fps-library-v2 is the replacement
+
+## 1.0.23 - 2022-Dec-23:  Drilldown Updates
+- standardize fetch return object interfaces
 
 ## 1.0.22 - 2022-Dec-23:  Drilldown Updates
 - add fetchFields : src\services\sp\fetch\fields\fetch.ts
