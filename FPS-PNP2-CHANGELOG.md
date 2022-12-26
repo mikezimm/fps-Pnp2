@@ -5,11 +5,14 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.24
+npm install @mikezimm/fps-pnp2@1.0.25
 
 # Changelog
 
-## 1.0.24 - 2022-Dec-23:  Drilldown Updates
+## 1.0.25 - 2022-Dec-23:  Drilldown attachments
+- update fetch attachments from issue:  https://github.com/mikezimm/drilldown7/issues/302
+
+## 1.0.24 - 2022-Dec-23:  Drilldown GetSourceItems
 - remove fetchSourceItems.  Now getSourceItems in fps-library-v2 is the replacement
 
 ## 1.0.23 - 2022-Dec-23:  Drilldown Updates

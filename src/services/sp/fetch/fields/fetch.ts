@@ -13,6 +13,11 @@ export interface IFieldsErrorObj extends IItemsErrorObj {
   items: IFieldInfo[];
 } 
 
+/**
+ * Automatically sorts by Title
+ * @param fetchProps 
+ * @returns 
+ */
 export async function fetchFields(  fetchProps: IMinFetchListProps ) : Promise<IFieldsErrorObj> {
 
   const { webUrl, listTitle, selectThese, expandThese, restFilter } = fetchProps ;

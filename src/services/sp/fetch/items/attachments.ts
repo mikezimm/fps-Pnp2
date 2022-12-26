@@ -2,6 +2,9 @@
 import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/items";
+// Added after testing and finding issue:  https://github.com/mikezimm/drilldown7/issues/302
+import "@pnp/sp/attachments";
+
 import { Web } from "@pnp/sp/webs";
 import { IAttachmentInfo } from "@pnp/sp/attachments";
 // sp is only used if you are getting the local web... I think :)
