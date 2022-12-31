@@ -5,7 +5,7 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.25
+npm install @mikezimm/fps-pnp2@1.0.26
 
 # Changelog
 
