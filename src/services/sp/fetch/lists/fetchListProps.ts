@@ -61,10 +61,11 @@ export async function fetchListProps( fetchProps: IMinFetchListProps, ) : Promis
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchListProps ~ 55`, result ) };
 
     } catch (e) {
-      // If it's being run locally, always console.log the error
+
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchListProps ~ 59`, e ) };
-      result.e = e;
+
       result.status = 'Error';
+      result.e = e;
 
     }
   }

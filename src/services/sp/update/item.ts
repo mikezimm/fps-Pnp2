@@ -8,6 +8,7 @@ import "@pnp/sp/items";
 import { Web } from "@pnp/sp/webs";
 import { IItemUpdateResult } from "@pnp/sp/items";
 import { IFPSResultStatus } from "../IFPSResultStatus";
+import { check4Gulp } from "../CheckGulping";
 // sp is only used if you are getting the local web... I think :)
 // import { sp } from "@pnp/sp";
 
@@ -43,10 +44,13 @@ export async function updateAnyItem( updateProps: IMinUpdateProps, ) : Promise<I
     result.response = response;
     result.status = 'Success';
 
-  } catch (e) {
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: updateAnyItem ~ 47`, result ) };
 
-    result.e = e;
+  } catch (e) {
+    if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: updateAnyItem ~ 50`, e ) };
+
     result.status = 'Error';
+    result.e = e;
   }
 
   return result;

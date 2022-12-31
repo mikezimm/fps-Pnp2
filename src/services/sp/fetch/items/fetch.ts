@@ -56,10 +56,11 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchAnyItems ~ 56`, result ) };
 
     } catch (e) {
-      // If it's being run locally, always console.log the error
+
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchAnyItems ~ 60`, e ) };
-      result.e = e;
+      
       result.status = 'Error';
+      result.e = e;
 
     }
   }

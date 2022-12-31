@@ -52,7 +52,8 @@ export async function fetchItemAttachments( fetchProps: IMinItemFetchProps, ) : 
     } catch (e) {
 
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchItemAttachments ~ 51`, e ) };
-
+      
+      result.status = 'Error';
       result.e = e;
 
     }

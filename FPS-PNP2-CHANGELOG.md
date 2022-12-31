@@ -9,6 +9,10 @@ npm install @mikezimm/fps-pnp2@1.0.25
 
 # Changelog
 
+## 1.0.26 - 2022-Dec-23:  ALVFinMan fetchItemAsHTML
+- add fetchItemAsHTML from ALVFinMan
+- standardize fetches to all include error result and put in same order
+
 ## 1.0.25 - 2022-Dec-23:  Drilldown attachments
 - update fetch attachments from issue:  https://github.com/mikezimm/drilldown7/issues/302
 

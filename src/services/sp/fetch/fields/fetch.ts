@@ -48,8 +48,9 @@ export async function fetchFields(  fetchProps: IMinFetchListProps ) : Promise<I
     } catch (e) {
 
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchFields ~ 45`, e ) };
-      result.e = e;
+      
       result.status = 'Error';
+      result.e = e;
     }
 
     }

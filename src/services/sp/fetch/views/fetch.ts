@@ -44,8 +44,8 @@ export async function fetchViews(  fetchProps: IMinFetchListProps ) : Promise<IV
     } catch (e) {
 
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchViews ~ 44`, e ) };
-      result.e = e;
       result.status = 'Error';
+      result.e = e;
     }
   }
 

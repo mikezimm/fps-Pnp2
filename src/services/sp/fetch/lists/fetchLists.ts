@@ -39,8 +39,8 @@ export async function fetchLists(  fetchProps: IMinFetchListProps ) : Promise<IL
   } catch (e) {
 
     if ( check4Gulp() === true ) { console.log( `fps-Pnp2 ERROR: fetchLists ~ 42`, e ) };
-    result.e = e;
     result.status = 'Error';
+    result.e = e;
   }
 
   return result;
