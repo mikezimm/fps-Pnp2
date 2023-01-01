@@ -5,9 +5,12 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.26
+npm install @mikezimm/fps-pnp2@1.0.27
 
 # Changelog
+
+## 1.0.27 - 2022-Dec-23:  ALVFinMan fetchItemAsHTML
+- add IItemErrorObj as return object for fetchItemAsHTML
 
 ## 1.0.26 - 2022-Dec-23:  ALVFinMan fetchItemAsHTML
 - add fetchItemAsHTML from ALVFinMan

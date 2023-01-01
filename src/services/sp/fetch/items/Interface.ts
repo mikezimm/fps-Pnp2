@@ -6,6 +6,12 @@ export interface IItemsErrorObj {
   e: any;
 }
 
+export interface IItemErrorObj {
+  status: IFPSResultStatus;
+  item: any;
+  e: any;
+}
+
 export interface IOrderByBoolean {
   prop: string;
   asc: boolean;

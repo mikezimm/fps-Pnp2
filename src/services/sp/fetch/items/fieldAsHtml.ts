@@ -7,7 +7,7 @@ import "@pnp/sp/items";
 import { Web } from "@pnp/sp/webs";
 
 import { check4Gulp } from "../../CheckGulping";
-import { IItemsErrorObj } from "./Interface";
+import { IItemErrorObj } from "./Interface";
 import { IMinItemFetchProps } from "./attachments";
 
 export interface IMinFetchItemAsXMLProps extends IMinItemFetchProps {
@@ -19,13 +19,13 @@ export interface IMinFetchItemAsXMLProps extends IMinItemFetchProps {
   context?: any; //Not needed until Pnpjs v3
 }
 
-export async function fetchItemAsHTML( fetchProps: IMinFetchItemAsXMLProps, ) : Promise<IItemsErrorObj> {
+export async function fetchItemAsHTML( fetchProps: IMinFetchItemAsXMLProps, ) : Promise<IItemErrorObj> {
 
   const { webUrl, listTitle, Id, selectThese, expandThese  } = fetchProps;
 
-  const result: IItemsErrorObj = {
+  const result: IItemErrorObj = {
     status: 'Unknown',
-    items: [],
+    item: null,
     e: null,
   };
 
@@ -41,7 +41,7 @@ export async function fetchItemAsHTML( fetchProps: IMinFetchItemAsXMLProps, ) : 
       const fetchId = typeof Id === 'string' ? parseInt( Id ) : Id;
       const fetchWeb = Web(`${webUrl.indexOf('https:') < 0 ? window.location.origin : ''}${webUrl}`);
       const item = await fetchWeb.lists.getByTitle( listTitle ).items.select(selectTheseStr).expand(expandTheseStr).getById( fetchId ).fieldValuesAsHTML()
-      result.items = [ item ];
+      result.item = item;
       result.status = 'Success';
 
       if ( check4Gulp() === true ) { console.log( `fps-Pnp2 Success: fetchItemAsHTML ~ 48`, result ) };
