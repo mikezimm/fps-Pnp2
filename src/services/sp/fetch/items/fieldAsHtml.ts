@@ -31,6 +31,7 @@ export async function fetchItemAsHTML( fetchProps: IMinFetchItemAsXMLProps, ) : 
 
   if ( !listTitle ) {
     result.status = 'NoList';
+    result.e = 'NoList';
 
   } else {
 

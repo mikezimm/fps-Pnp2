@@ -30,6 +30,7 @@ export async function fetchFields(  fetchProps: IMinFetchListProps ) : Promise<I
 
   if ( !listTitle ) {
     result.status = 'NoList';
+    result.e = 'NoList';
 
   } else {
 

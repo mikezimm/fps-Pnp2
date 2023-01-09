@@ -19,7 +19,7 @@ import { check4Gulp } from "../../CheckGulping";
 
 export async function fetchUserPermissions(webUrl: string, ) : Promise<IUserPermissionsResults> {
 
-  if ( !webUrl ) { return { basePerms: null as any, e: null, status: 'NoWeb' } ; }
+  if ( !webUrl ) { return { basePerms: null as any, e: 'NoWeb', status: 'NoWeb' } ; }
 
   let thisWeb = Web(webUrl);
 

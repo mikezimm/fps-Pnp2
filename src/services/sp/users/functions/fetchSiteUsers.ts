@@ -9,7 +9,7 @@ import { ISiteUsersResults } from "../interfaces/ISiteUsersResults";
 
 export async function fetchSiteUsers(url: string, ): Promise<ISiteUsersResults> {
 
-  if ( !url ) { return { users: null as any, e: null, status: 'NoWeb' } ; }
+  if ( !url ) { return { users: null as any, e: 'NoWeb', status: 'NoWeb' } ; }
 
   try {
 

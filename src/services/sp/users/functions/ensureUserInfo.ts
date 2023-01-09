@@ -12,8 +12,8 @@ import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
  */
 export async function ensureUserInfo(webUrl: string, userEmail: string): Promise<IEnsureUserResults> {
 
-  if ( !webUrl  ) { return { user: null as any, e: null, status: 'NoWeb' } ; }
-  if ( !userEmail ) { return { user: null as any, e: null, status: 'NoUser' } ; }
+  if ( !webUrl  ) { return { user: null as any, e: 'NoWeb', status: 'NoWeb' } ; }
+  if ( !userEmail ) { return { user: null as any, e: 'NoUser', status: 'NoUser' } ; }
 
   try {
     // 2022-12-10:  Verified needed full Url for this call

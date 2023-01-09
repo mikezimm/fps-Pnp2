@@ -5,9 +5,15 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.27
+npm install @mikezimm/fps-pnp2@1.0.29
 
 # Changelog
+
+## 1.0.29 - 2023-Jan-09:  Drilldown common errors update
+- updated all returns by putting common Error strings below in the result.e property so it gets handled later.
+
+## 1.0.28 - 2023-Jan-09:  Drilldown common errors update
+- add export const FPSResultCommonErrors: IFPSResultStatus[] = [ 'NoWeb' , 'NoList' , 'NoItem' , 'NoUser' ];
 
 ## 1.0.27 - 2022-Dec-23:  ALVFinMan fetchItemAsHTML
 - add IItemErrorObj as return object for fetchItemAsHTML

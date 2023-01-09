@@ -25,6 +25,7 @@ export async function fetchViews(  fetchProps: IMinFetchListProps ) : Promise<IV
 
   if ( !listTitle ) {
     result.status = 'NoList';
+    result.e = 'NoList';
 
   } else {
 

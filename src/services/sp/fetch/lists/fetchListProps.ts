@@ -42,6 +42,7 @@ export async function fetchListProps( fetchProps: IMinFetchListProps, ) : Promis
 
   if ( !listTitle ) {
     result.status = 'NoList';
+    result.e = 'NoList';
 
   } else {
 

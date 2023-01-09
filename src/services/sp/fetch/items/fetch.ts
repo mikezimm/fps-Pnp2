@@ -27,6 +27,7 @@ export async function fetchAnyItems( fetchProps: IMinFetchProps, ) : Promise<IIt
 
   if ( !listTitle ) {
     result.status = 'NoList';
+    result.e = 'NoList';
 
   } else {
 

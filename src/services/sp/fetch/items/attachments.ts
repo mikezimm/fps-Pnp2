@@ -36,6 +36,7 @@ export async function fetchItemAttachments( fetchProps: IMinItemFetchProps, ) : 
 
   if ( !listTitle ) {
     result.status = 'NoList';
+    result.e = 'NoList';
 
   } else {
 

@@ -13,7 +13,7 @@ import { ISiteUsersResults } from "../interfaces/ISiteUsersResults";
 
 export async function fetchSiteAdmins( webUrl: string ): Promise<ISiteUsersResults> {
 
-  if ( !webUrl ) { return { users: null as any, e: null, status: 'NoWeb' } ; }
+  if ( !webUrl ) { return { users: null as any, e: 'NoWeb', status: 'NoWeb' } ; }
 
   try {
     let thisWeb = Web(webUrl);
