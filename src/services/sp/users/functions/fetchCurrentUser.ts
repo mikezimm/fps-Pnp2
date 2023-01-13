@@ -22,6 +22,8 @@ import { IEnsureUserResults } from "../interfaces/IEnsureUserResults";
 
 export async function fetchCurrentUser(webUrl: string): Promise<IEnsureUserResults>  {
 
+  if ( !webUrl  ) { return { user: null as any, e: 'NoWeb', status: 'NoWeb' } ; }
+
   try {
     let thisWebInstance = Web(webUrl);
     const user: ISiteUser = await thisWebInstance.currentUser.get();

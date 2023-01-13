@@ -5,7 +5,7 @@ import "@pnp/sp/fields";
 import { Web, } from "@pnp/sp/webs";
 import { IFieldInfo, } from "@pnp/sp/fields/types";
 
-import { IItemsErrorObj } from "../items";
+import { IItemsErrorObj } from "../items/Interface";
 import { check4Gulp } from "../../CheckGulping";
 import { IMinFetchListProps } from "../lists/fetchListProps";
 

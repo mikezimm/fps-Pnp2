@@ -1,6 +1,6 @@
 
-export * from './services/sp/fetch/items/index';
-export * from './services/sp/users/index';
-export * from './services/sp/logging/index';
+// export * from './services/sp/fetch/items/OLD-index';
+// export * from './services/sp/users/OLD-index';
+// export * from './services/sp/logging/OLD-index';
 
-export { check4Gulp } from './services/sp/CheckGulping';
+// export { check4Gulp } from './services/sp/CheckGulping';

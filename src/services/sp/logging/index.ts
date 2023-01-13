@@ -1,2 +1,0 @@
-
-export { saveThisLogItem } from './saveThisLogItem';

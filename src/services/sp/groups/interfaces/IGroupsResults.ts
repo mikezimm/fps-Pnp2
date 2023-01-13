@@ -9,13 +9,11 @@
 *
 */
 
-import { ISiteUserInfo } from "@pnp/sp/site-users/types";
+import { ISiteGroupInfo } from "@pnp/sp/site-groups/types";
 import { IFPSResultStatus } from "../../IFPSResultStatus";
 
-export interface ISiteUsersResults {
-  users: ISiteUserInfo[];
+export interface IGroupsResults {
+  groups: ISiteGroupInfo[];
   e: any;
   status: IFPSResultStatus;
 }
-
-

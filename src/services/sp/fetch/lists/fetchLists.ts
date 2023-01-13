@@ -4,7 +4,7 @@ import "@pnp/sp/lists";
 import { Web, } from "@pnp/sp/webs";
 import { IListInfo, } from "@pnp/sp/lists/types";
 
-import { IItemsErrorObj } from "../items";
+import { IItemsErrorObj } from "../items/Interface";
 import { check4Gulp } from "../../CheckGulping";
 import { IMinFetchListProps } from "./fetchListProps";
 

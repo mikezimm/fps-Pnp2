@@ -5,9 +5,17 @@ npm run build
 npm version major/minor/patch
 npm publish --access=public
 
-npm install @mikezimm/fps-pnp2@1.0.29
+npm install @mikezimm/fps-pnp2@1.0.30
 
 # Changelog
+
+## 1.0.30 - 2023-Jan-12:  Pivot Tiles Groups and GroupUsers
+- add folder:  src\services\sp\groups
+- add groups interfaces src\services\sp\groups\interfaces
+- add group functions: getAssociatedGroup, getAssociatedMembersGroup, getAssociatedOwnersGroup, getAssociatedVisitorsGroup
+- add getSiteGroups, getUsersFromGroup, getUsersFromGroupId, getUsersFromGroupName
+- removed index files so you have to go to actual best location form minimal import
+
 
 ## 1.0.29 - 2023-Jan-09:  Drilldown common errors update
 - updated all returns by putting common Error strings below in the result.e property so it gets handled later.
